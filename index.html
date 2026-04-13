@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viajes Delmiro — Los adultos viajan gratis</title>
+    <link rel="Icon" type="image/x-icon" href="assets/Logo_Viajes_Delmiro.png">
+
+    <!-- Enlazo la hoja de estilos externa -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Cargo las fuentes de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    <!-- Cabecera fija con el logo y el menú de navegación -->
+    <header class="cabecera">
+
+      <!-- Bloque izquierdo: logo + lema -->
+      <div class="cabecera__marca">
+        <span class="cabecera__logo">✦</span>
+        <div>
+          <h1 class="cabecera__nombre">
+            <img src="./assets/Logo_Viajes_Delmiro.png" alt="Logo de viajes Delmiro" />
+          </h1>
+          <p class="cabecera__lema">
+            Donde los mayores viajan sin coste, y los pequeños lideran la aventura.
+          </p>
+        </div>
+      </div>
+
+      <!-- Menú de navegación con enlaces internos a cada sección -->
+      <nav class="cabecera__nav" aria-label="Navegación principal">
+        <ul class="nav__lista">
+          <li><a href="#portada" class="nav__enlace">Inicio</a></li>
+          <li><a href="#destinos" class="nav__enlace">Destinos</a></li>
+          <li><a href="#como-funciona" class="nav__enlace">¿Cómo funciona?</a></li>
+          <!-- Este enlace tiene estilo de botón para que destaque -->
+          <li><a href="#contacto" class="nav__enlace nav__enlace--cta">Reservar</a></li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <main>
+
+      <!-- Sección hero / portada principal -->
+      <section id="portada" class="portada">
+
+        <!-- Texto del lado izquierdo -->
+        <div class="portada__contenido">
+          <p class="portada__etiqueta">Oferta exclusiva familias</p>
+          <h2 class="portada__titulo">
+            Los adultos<br /><em>viajan gratis.</em><br />Los niños pagan.
+          </h2>
+          <p class="portada__descripcion">
+            En Viajes Delmiro hemos dado la vuelta a todo. Creemos que las
+            familias merecen explorar el mundo sin que el precio sea un
+            obstáculo. Por eso, cada vez que reservas con tus hijos, tú viajas
+            de forma completamente gratuita.
+          </p>
+
+          <!-- Botones de llamada a la acción -->
+          <div class="portada__botones">
+            <a href="#destinos" class="btn btn--primario">Ver destinos</a>
+            <a href="#contacto" class="btn btn--secundario">Reservar ahora</a>
+          </div>
+
+          <!-- Caja con la oferta de verano -->
+          <div class="portada__oferta">
+            <span class="oferta__icono">🌟</span>
+            <div>
+              <strong class="oferta__titulo">Oferta de verano 2026</strong>
+              <p class="oferta__texto">
+                Reserva antes del 30 de junio y llévate un seguro de viaje
+                familiar <em>gratis</em> para toda la familia.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Foto del lado derecho (se oculta en móvil con CSS) -->
+        <div class="portada__imagen">
+          <img
+            src="./assets/Hero2.jpg"
+            alt="Familia feliz al atardecer en la playa"
+            class="portada__foto"
+          />
+        </div>
+
+      </section>
+
+      <!-- Sección de destinos con las 3 tarjetas -->
+      <section id="destinos" class="destinos">
+
+        <!-- Título de la sección -->
+        <header class="seccion__cabecera">
+          <p class="seccion__etiqueta">Explorar</p>
+          <h2 class="seccion__titulo">Destinos destacados</h2>
+          <p class="seccion__subtitulo">
+            Selección curada de los viajes más populares entre las familias Delmiro.
+          </p>
+        </header>
+
+        <!-- Grid con las tarjetas de destinos -->
+        <div class="destinos__grid">
+
+          <!-- Tarjeta 1: Grecia -->
+          <article class="tarjeta">
+            <div class="tarjeta__imagen">
+              <img
+                src="./assets/Grecia_Islas.jpg"
+                alt="Santorini, Grecia — cúpulas azules frente al mar"
+                class="tarjeta__foto"
+              />
+              <span class="tarjeta__badge">Más vendido</span>
+            </div>
+            <div class="tarjeta__cuerpo">
+              <h3 class="tarjeta__destino">Grecia — Islas Cícladas</h3>
+              <p class="tarjeta__descripcion">
+                Siete noches entre Santorini y Mykonos con hotel frente al mar,
+                desayunos incluidos y excursiones en barco para los peques.
+              </p>
+              <div class="tarjeta__precio">
+                <span class="precio__etiqueta">Niños desde</span>
+                <span class="precio__cantidad">890 €</span>
+                <span class="precio__noches">7 noches</span>
+                <span class="precio__adultos">Adultos: gratis</span>
+              </div>
+              <a href="#contacto" class="btn btn--tarjeta">Ver oferta</a>
+            </div>
+          </article>
+
+          <!-- Tarjeta 2: Marruecos -->
+          <article class="tarjeta">
+            <div class="tarjeta__imagen">
+              <img
+                src="./assets/Sahara_marrakech.jpg"
+                alt="Dunas del Sahara con palmeras, Marruecos"
+                class="tarjeta__foto"
+              />
+              <span class="tarjeta__badge">Novedad</span>
+            </div>
+            <div class="tarjeta__cuerpo">
+              <h3 class="tarjeta__destino">Marruecos — Marrakech & Sahara</h3>
+              <p class="tarjeta__descripcion">
+                Diez días de aventura familiar: zocos, riads, noche en jaima
+                bajo las estrellas y paseo en camello garantizado.
+              </p>
+              <div class="tarjeta__precio">
+                <span class="precio__etiqueta">Niños desde</span>
+                <span class="precio__cantidad">740 €</span>
+                <span class="precio__noches">10 noches</span>
+                <span class="precio__adultos">Adultos: gratis</span>
+              </div>
+              <a href="#contacto" class="btn btn--tarjeta">Ver oferta</a>
+            </div>
+          </article>
+
+          <!-- Tarjeta 3: Costa Rica (tiene descuento del 20%) -->
+          <article class="tarjeta">
+            <div class="tarjeta__imagen">
+              <img
+                src="./assets/Costa_rica.jpg"
+                alt="Bahía tropical entre selva y mar, Costa Rica"
+                class="tarjeta__foto"
+              />
+              <!-- Badge naranja para indicar oferta -->
+              <span class="tarjeta__badge tarjeta__badge--oferta">-20%</span>
+            </div>
+            <div class="tarjeta__cuerpo">
+              <h3 class="tarjeta__destino">Costa Rica — Naturaleza viva</h3>
+              <p class="tarjeta__descripcion">
+                Doce días entre volcanes, selva tropical y playas del Pacífico.
+                Actividades de ecoturismo diseñadas para que los niños sean los protagonistas.
+              </p>
+              <div class="tarjeta__precio">
+                <span class="precio__etiqueta">Niños desde</span>
+                <!-- Precio original tachado y precio rebajado -->
+                <span class="precio__cantidad precio__cantidad--original">1.290 €</span>
+                <span class="precio__cantidad precio__cantidad--rebajado">1.032 €</span>
+                <span class="precio__noches">12 noches</span>
+                <span class="precio__adultos">Adultos: gratis</span>
+              </div>
+              <a href="#contacto" class="btn btn--tarjeta">Ver oferta</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Sección que explica cómo funciona la promoción -->
+      <section id="como-funciona" class="como-funciona">
+
+        <!-- Imagen decorativa de fondo (solo visual, no tiene texto alternativo) -->
+        <div class="como-funciona__fondo-img" aria-hidden="true">
+          <img src="./assets/Grecia_Islas.jpg" alt="" class="como-funciona__foto-fondo" />
+        </div>
+
+        <div class="como-funciona__inner">
+
+          <header class="seccion__cabecera seccion__cabecera--claro">
+            <p class="seccion__etiqueta">Sin letra pequeña</p>
+            <h2 class="seccion__titulo">¿Cómo funciona la promoción?</h2>
+          </header>
+
+          <!-- Los 4 pasos explicados en un grid de 2x2 -->
+          <div class="pasos__grid">
+
+            <div class="paso">
+              <span class="paso__numero">01</span>
+              <h3 class="paso__titulo">Elige tu destino</h3>
+              <p class="paso__texto">
+                Selecciona cualquier paquete de nuestro catálogo. La promoción
+                aplica a todos los viajes sin excepción.
+              </p>
+            </div>
+
+            <div class="paso">
+              <span class="paso__numero">02</span>
+              <h3 class="paso__titulo">Reserva con tus hijos</h3>
+              <p class="paso__texto">
+                Debe viajar al menos un niño menor de 14 años. Por cada niño que
+                paga su plaza, un adulto viaja completamente gratis.
+              </p>
+            </div>
+
+            <div class="paso">
+              <span class="paso__numero">03</span>
+              <h3 class="paso__titulo">Confirma y listo</h3>
+              <p class="paso__texto">
+                Abona únicamente el importe correspondiente a los menores. El
+                coste del adulto queda cubierto por Viajes Delmiro.
+              </p>
+            </div>
+
+            <div class="paso">
+              <span class="paso__numero">04</span>
+              <h3 class="paso__titulo">Disfruta sin preocupaciones</h3>
+              <p class="paso__texto">
+                Seguro de cancelación incluido. Asistencia 24h durante todo el
+                viaje. Guía bilingüe en todos los destinos.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Condiciones de la promoción en un aside (contenido secundario) -->
+          <aside class="condiciones">
+            <h4 class="condiciones__titulo">Condiciones principales</h4>
+            <ul class="condiciones__lista">
+              <li>Válido para niños de 2 a 14 años.</li>
+              <li>Máximo 2 adultos gratuitos por reserva.</li>
+              <li>No acumulable con otras promociones.</li>
+              <li>Sujeto a disponibilidad de plazas.</li>
+              <li>Reserva mínima con 30 días de antelación.</li>
+            </ul>
+          </aside>
+
+        </div>
+      </section>
+
+      <!-- Sección de contacto con el formulario -->
+      <section id="contacto" class="contacto">
+        <div class="contacto__inner">
+
+          <header class="seccion__cabecera">
+            <p class="seccion__etiqueta">Hablemos</p>
+            <h2 class="seccion__titulo">Reserva o consulta</h2>
+            <p class="seccion__subtitulo">
+              Cuéntanos adónde quieres ir. Nuestros asesores te responden en menos de 24 horas.
+            </p>
+          </header>
+
+          <!-- Formulario de contacto -->
+          <form class="formulario" action="#" method="post" novalidate>
+
+            <!-- Campo nombre -->
+            <div class="formulario__grupo">
+              <label for="nombre" class="formulario__label">Nombre completo</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="formulario__input"
+                placeholder="María García"
+                required
+              />
+            </div>
+
+            <!-- Campo email -->
+            <div class="formulario__grupo">
+              <label for="email" class="formulario__label">Correo electrónico</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="formulario__input"
+                placeholder="maria@ejemplo.com"
+                required
+              />
+            </div>
+
+            <!-- Campo mensaje (ocupa las 2 columnas del grid) -->
+            <div class="formulario__grupo formulario__grupo--completo">
+              <label for="mensaje" class="formulario__label">Tu mensaje</label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="formulario__textarea"
+                rows="5"
+                placeholder="Hola, me gustaría información sobre el viaje a Grecia para 2 adultos y 1 niño de 8 años..."
+                required
+              ></textarea>
+            </div>
+
+            <!-- Botón de envío centrado -->
+            <div class="formulario__grupo formulario__grupo--completo formulario__grupo--centrado">
+              <button type="submit" class="btn btn--primario btn--grande">
+                Enviar consulta
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Pie de página con datos de contacto y redes -->
+    <footer class="pie">
+      <div class="pie__inner">
+
+        <!-- Bloque 1: nombre y eslogan -->
+        <div class="pie__marca">
+          <span class="pie__logo">✦ Viajes Delmiro</span>
+          <p class="pie__eslogan">
+            Donde los pequeños mandan y los grandes viajan gratis.
+          </p>
+        </div>
+
+        <!-- Bloque 2: teléfono, email y dirección -->
+        <div class="pie__datos">
+          <p>📞 <a href="tel:+34900123456" class="pie__enlace">900 123 456</a></p>
+          <p>✉️ <a href="mailto:hola@viajesdelmiro.es" class="pie__enlace">hola@viajesdelmiro.es</a></p>
+          <p>📍 Calle del Viajero, 7 — Sevilla</p>
+        </div>
+
+        <!-- Bloque 3: redes sociales -->
+        <div class="pie__redes">
+          <a href="#" class="pie__enlace" aria-label="Instagram">Instagram</a>
+          <a href="#" class="pie__enlace" aria-label="Facebook">Facebook</a>
+          <a href="#" class="pie__enlace" aria-label="TikTok">TikTok</a>
+        </div>
+
+      </div>
+
+      <p class="pie__copyright">© 2025 Viajes Delmiro S.L. — Todos los derechos reservados.</p>
+    </footer>
+
+  </body>
+</html>

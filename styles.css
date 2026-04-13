@@ -1,0 +1,918 @@
+/* Hoja de estilos de Viajes Delmiro
+   Proyecto de clase — Agencia de viajes */
+
+/* ---- Variables globales y reset ---- */
+
+:root {
+  /* Colores principales */
+  --azul-oscuro:       #1a2b3c;
+  --azul-medio:        #2c4a63;
+  --beige:             #f5ede0;
+  --beige-oscuro:      #e8d5bc;
+  --naranja:           #c4693a;
+  --naranja-hover:     #a8542b;
+  --dorado:            #d4a853;
+  --negro-suave:       #2a2a2a;
+  --gris:              #6b6b6b;
+  --blanco:            #ffffff;
+
+  /* Fuentes */
+  --fuente-titulo: 'Playfair Display', Georgia, serif;
+  --fuente-texto:  'Crimson Pro', 'Times New Roman', serif;
+
+  /* Tamaños de letra */
+  --letra-xs:   0.75rem;
+  --letra-sm:   0.875rem;
+  --letra-md:   1.125rem;
+  --letra-lg:   1.25rem;
+  --letra-xl:   1.5rem;
+  --letra-2xl:  2rem;
+  --letra-3xl:  2.75rem;
+  --letra-4xl:  3.75rem;
+
+  /* Márgenes y rellenos */
+  --espacio-xs:  0.5rem;
+  --espacio-sm:  1rem;
+  --espacio-md:  1.5rem;
+  --espacio-lg:  2.5rem;
+  --espacio-xl:  4rem;
+  --espacio-2xl: 6rem;
+
+  /* Bordes redondeados */
+  --redondeo-sm:   4px;
+  --redondeo-md:   8px;
+  --redondeo-lg:   16px;
+
+  /* Sombras */
+  --sombra-sm:  0 2px 8px rgba(26, 43, 60, 0.10);
+  --sombra-md:  0 8px 24px rgba(26, 43, 60, 0.15);
+  --sombra-lg:  0 16px 48px rgba(26, 43, 60, 0.20);
+
+  /* Velocidad de las animaciones hover */
+  --velocidad: 0.25s ease;
+}
+
+/* Reset básico — quito márgenes y padding por defecto */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  font-size: var(--letra-md);
+  color: var(--negro-suave);
+  background-color: var(--beige);
+  line-height: 1.65;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* ---- Botones ---- */
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--redondeo-sm);
+  font-family: var(--fuente-texto);
+  font-size: var(--letra-md);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background-color var(--velocidad),
+              color var(--velocidad),
+              border-color var(--velocidad),
+              transform var(--velocidad),
+              box-shadow var(--velocidad);
+}
+
+/* Efecto hover general de los botones */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-md);
+}
+
+/* Botón principal (naranja) */
+.btn--primario {
+  background-color: var(--naranja);
+  color: var(--blanco);
+  border-color: var(--naranja);
+}
+
+.btn--primario:hover {
+  background-color: var(--naranja-hover);
+  border-color: var(--naranja-hover);
+}
+
+/* Botón secundario (transparente con borde blanco) */
+.btn--secundario {
+  background-color: transparent;
+  color: var(--blanco);
+  border-color: var(--blanco);
+}
+
+.btn--secundario:hover {
+  background-color: var(--blanco);
+  color: var(--azul-oscuro);
+}
+
+/* Botón de las tarjetas */
+.btn--tarjeta {
+  background-color: var(--azul-oscuro);
+  color: var(--blanco);
+  border-color: var(--azul-oscuro);
+  padding: 0.6rem 1.4rem;
+  font-size: var(--letra-sm);
+}
+
+.btn--tarjeta:hover {
+  background-color: var(--naranja);
+  border-color: var(--naranja);
+}
+
+/* Botón grande (formulario) */
+.btn--grande {
+  padding: 1rem 2.5rem;
+  font-size: var(--letra-lg);
+}
+
+
+/* ---- Cabeceras de cada sección ---- */
+
+.seccion__cabecera {
+  text-align: center;
+  margin-bottom: var(--espacio-lg);
+}
+
+.seccion__etiqueta {
+  display: inline-block;
+  font-size: var(--letra-xs);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--naranja);
+  margin-bottom: var(--espacio-xs);
+}
+
+.seccion__titulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--letra-3xl);
+  color: var(--azul-oscuro);
+  line-height: 1.2;
+  margin-bottom: var(--espacio-sm);
+}
+
+.seccion__subtitulo {
+  font-size: var(--letra-lg);
+  color: var(--gris);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Versión clara (para la sección con fondo oscuro) */
+.seccion__cabecera--claro .seccion__titulo {
+  color: var(--blanco);
+}
+
+.seccion__cabecera--claro .seccion__subtitulo {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* ---- Cabecera del sitio (header) ----
+   Uso Flexbox para poner la marca y el menú uno a cada lado */
+
+.cabecera {
+  display: flex; /* FLEXBOX */
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--espacio-sm);
+  padding: 8px var(--espacio-xl);
+  background-color: var(--azul-oscuro);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--sombra-md);
+}
+
+/* Logo y lema en fila */
+.cabecera__marca {
+  display: flex; /* FLEXBOX */
+  align-items: center;
+  gap: 8px;
+}
+
+.cabecera__marca > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cabecera__logo {
+  font-size: var(--letra-2xl);
+  color: var(--dorado);
+}
+
+.cabecera__nombre {
+  font-family: var(--fuente-titulo);
+  font-size: var(--letra-xl);
+  color: var(--blanco);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0;
+  line-height: 1;
+}
+
+.cabecera__nombre img {
+  height: 120px;
+  transform: scale(1,1);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.cabecera__lema {
+  font-size: var(--letra-xs);
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  line-height: 1.3;
+  margin-top: 2px;
+}
+
+/* Menú de navegación en fila con Flexbox */
+.nav__lista {
+  display: flex; /* FLEXBOX */
+  align-items: center;
+  gap: var(--espacio-md);
+  flex-wrap: wrap;
+}
+
+.nav__enlace {
+  font-size: var(--letra-sm);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color var(--velocidad), border-color var(--velocidad);
+}
+
+.nav__enlace:hover {
+  color: var(--dorado);
+  border-bottom-color: var(--dorado);
+}
+
+/* Botón "Reservar" del menú */
+.nav__enlace--cta {
+  background-color: var(--naranja);
+  color: var(--blanco) !important;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--redondeo-sm);
+  border-bottom: none !important;
+}
+
+.nav__enlace--cta:hover {
+  background-color: var(--naranja-hover);
+  border-bottom: none !important;
+}
+
+
+/* ---- Sección principal / Hero ----
+   Uso Flexbox para poner el texto a la izquierda y la foto a la derecha */
+
+.portada {
+  display: flex; /* FLEXBOX */
+  align-items: center;
+  gap: var(--espacio-xl);
+  min-height: 88vh;
+  padding: var(--espacio-xl);
+  background-color: var(--azul-oscuro);
+  background-image:
+    radial-gradient(ellipse at 80% 20%, rgba(196, 105, 58, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 10% 90%, rgba(44, 74, 99, 0.8) 0%, transparent 50%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Círculo decorativo de fondo */
+.portada::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 80px solid rgba(212, 168, 83, 0.07);
+  pointer-events: none;
+}
+
+.portada__contenido {
+  flex: 1;
+  max-width: 560px;
+}
+
+.portada__etiqueta {
+  display: inline-block;
+  font-size: var(--letra-xs);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dorado);
+  margin-bottom: var(--espacio-sm);
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(212, 168, 83, 0.4);
+  border-radius: 2px;
+}
+
+.portada__titulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--letra-4xl);
+  color: var(--blanco);
+  line-height: 1.1;
+  margin-bottom: var(--espacio-md);
+}
+
+.portada__titulo em {
+  color: var(--dorado);
+  font-style: italic;
+}
+
+.portada__descripcion {
+  font-size: var(--letra-lg);
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: var(--espacio-lg);
+  line-height: 1.7;
+}
+
+/* Botones del hero en fila con Flexbox */
+.portada__botones {
+  display: flex; /* FLEXBOX */
+  gap: var(--espacio-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--espacio-lg);
+}
+
+/* Caja de la oferta destacada */
+.portada__oferta {
+  display: flex; /* FLEXBOX */
+  align-items: flex-start;
+  gap: var(--espacio-sm);
+  padding: var(--espacio-md);
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 168, 83, 0.3);
+  border-radius: var(--redondeo-md);
+  backdrop-filter: blur(4px);
+}
+
+.oferta__icono {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.oferta__titulo {
+  display: block;
+  font-size: var(--letra-md);
+  color: var(--dorado);
+  margin-bottom: 0.25rem;
+}
+
+.oferta__texto {
+  font-size: var(--letra-sm);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Foto del hero (lado derecho) */
+.portada__imagen {
+  flex: 1;
+  max-width: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portada__foto {
+  width: 100%;
+  height: 480px;
+  object-fit: contain;
+  background-color: rgba(212, 169, 83, 0);
+  object-position: center;
+  border-radius: var(--redondeo-lg);
+  box-shadow: var(--sombra-lg);
+  border: 3px solid rgba(212, 169, 83, 0.008);
+}
+
+
+/* ---- Sección de destinos ----
+   Uso CSS Grid para las 3 tarjetas */
+
+.destinos {
+  padding: var(--espacio-2xl) var(--espacio-xl);
+  background-color: var(--beige);
+}
+
+/* Grid de 3 columnas para las tarjetas */
+.destinos__grid {
+  display: grid; /* CSS GRID */
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espacio-lg);
+}
+
+.tarjeta {
+  background-color: var(--blanco);
+  border-radius: var(--redondeo-lg);
+  overflow: hidden;
+  box-shadow: var(--sombra-sm);
+  border: 1px solid var(--beige-oscuro);
+  transition: box-shadow var(--velocidad), transform var(--velocidad);
+}
+
+/* Efecto hover de la tarjeta */
+.tarjeta:hover {
+  box-shadow: var(--sombra-lg);
+  transform: translateY(-4px);
+}
+
+.tarjeta__imagen {
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tarjeta__foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Zoom suave en la foto al hacer hover */
+.tarjeta:hover .tarjeta__foto {
+  transform: scale(1.05);
+}
+
+/* Etiqueta encima de la imagen */
+.tarjeta__badge {
+  position: absolute;
+  top: var(--espacio-sm);
+  left: var(--espacio-sm);
+  background-color: var(--azul-oscuro);
+  color: var(--blanco);
+  font-size: var(--letra-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--redondeo-sm);
+}
+
+/* Badge naranja para las ofertas */
+.tarjeta__badge--oferta {
+  background-color: var(--naranja);
+}
+
+.tarjeta__cuerpo {
+  padding: var(--espacio-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-sm);
+}
+
+.tarjeta__destino {
+  font-family: var(--fuente-titulo);
+  font-size: var(--letra-xl);
+  color: var(--azul-oscuro);
+  line-height: 1.3;
+}
+
+.tarjeta__descripcion {
+  font-size: var(--letra-md);
+  color: var(--gris);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* Caja del precio */
+.tarjeta__precio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: var(--espacio-sm);
+  background-color: var(--beige);
+  border-radius: var(--redondeo-sm);
+  border-left: 3px solid var(--naranja);
+}
+
+.precio__etiqueta {
+  font-size: var(--letra-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+
+/* Precio tachado (precio original antes del descuento) */
+.precio__cantidad--original {
+  text-decoration: line-through;
+  color: var(--gris);
+  font-size: var(--letra-lg);
+}
+
+/* Precio rebajado en naranja */
+.precio__cantidad--rebajado {
+  color: var(--naranja);
+  font-weight: 700;
+}
+
+.precio__cantidad {
+  font-family: var(--fuente-titulo);
+  font-size: var(--letra-2xl);
+  color: var(--azul-oscuro);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.precio__adultos {
+  font-size: var(--letra-sm);
+  color: var(--naranja);
+  font-weight: 600;
+}
+
+.precio__noches {
+  font-size: var(--letra-sm);
+  color: var(--gris);
+}
+
+
+/* ---- Sección "Cómo funciona" ----
+   Uso CSS Grid para los 4 pasos (2 columnas x 2 filas) */
+
+.como-funciona {
+  background-color: var(--azul-oscuro);
+  padding: var(--espacio-2xl) var(--espacio-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Imagen de fondo semitransparente detrás de los pasos */
+.como-funciona__fondo-img {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.como-funciona__foto-fondo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.08;
+  filter: saturate(0.5);
+}
+
+.como-funciona__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Grid de 2 columnas para los pasos */
+.pasos__grid {
+  display: grid; /* CSS GRID */
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--espacio-lg);
+  margin-bottom: var(--espacio-lg);
+}
+
+.paso {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--redondeo-md);
+  padding: var(--espacio-md);
+  transition: background-color var(--velocidad), border-color var(--velocidad);
+}
+
+.paso:hover {
+  background-color: rgba(255, 255, 255, 0.09);
+  border-color: rgba(212, 168, 83, 0.3);
+}
+
+.paso__numero {
+  display: block;
+  font-family: var(--fuente-titulo);
+  font-size: 3rem;
+  color: var(--dorado);
+  opacity: 0.4;
+  line-height: 1;
+  margin-bottom: var(--espacio-xs);
+}
+
+.paso__titulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--letra-xl);
+  color: var(--blanco);
+  margin-bottom: var(--espacio-xs);
+}
+
+.paso__texto {
+  font-size: var(--letra-md);
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.65;
+}
+
+/* Caja de condiciones legales */
+.condiciones {
+  background-color: rgba(212, 168, 83, 0.08);
+  border: 1px solid rgba(212, 168, 83, 0.25);
+  border-radius: var(--redondeo-md);
+  padding: var(--espacio-md) var(--espacio-lg);
+}
+
+.condiciones__titulo {
+  font-family: var(--fuente-titulo);
+  font-size: var(--letra-lg);
+  color: var(--dorado);
+  margin-bottom: var(--espacio-sm);
+}
+
+.condiciones__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-xs) var(--espacio-lg);
+}
+
+.condiciones__lista li {
+  font-size: var(--letra-sm);
+  color: rgba(255, 255, 255, 0.65);
+  padding-left: 1.2em;
+  position: relative;
+}
+
+/* Punto dorado delante de cada condición */
+.condiciones__lista li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--dorado);
+}
+
+
+/* ---- Sección de contacto ----
+   El formulario usa CSS Grid para poner los campos en 2 columnas */
+
+.contacto {
+  padding: var(--espacio-2xl) var(--espacio-xl);
+  background-color: var(--beige);
+}
+
+.contacto__inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Formulario en 2 columnas con Grid */
+.formulario {
+  display: grid; /* CSS GRID */
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-md);
+  background-color: var(--blanco);
+  border-radius: var(--redondeo-lg);
+  padding: var(--espacio-xl);
+  box-shadow: var(--sombra-md);
+  border: 1px solid var(--beige-oscuro);
+}
+
+.formulario__grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Clase para que un campo ocupe las 2 columnas */
+.formulario__grupo--completo {
+  grid-column: 1 / -1;
+}
+
+.formulario__grupo--centrado {
+  align-items: center;
+}
+
+.formulario__label {
+  font-size: var(--letra-sm);
+  font-weight: 600;
+  color: var(--azul-oscuro);
+  letter-spacing: 0.04em;
+}
+
+.formulario__input,
+.formulario__textarea {
+  font-family: var(--fuente-texto);
+  font-size: var(--letra-md);
+  color: var(--negro-suave);
+  background-color: var(--beige);
+  border: 2px solid var(--beige-oscuro);
+  border-radius: var(--redondeo-sm);
+  padding: 0.65rem 1rem;
+  width: 100%;
+  transition: border-color var(--velocidad), box-shadow var(--velocidad);
+  outline: none;
+}
+
+/* Efecto foco en los campos del formulario */
+.formulario__input:focus,
+.formulario__textarea:focus {
+  border-color: var(--naranja);
+  box-shadow: 0 0 0 3px rgba(196, 105, 58, 0.15);
+}
+
+.formulario__textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+
+/* ---- Pie de página ----
+   Uso Flexbox para distribuir los tres bloques en fila */
+
+.pie {
+  background-color: var(--azul-oscuro);
+  color: rgba(255, 255, 255, 0.65);
+  padding: var(--espacio-xl) var(--espacio-xl) var(--espacio-md);
+}
+
+.pie__inner {
+  display: flex; /* FLEXBOX */
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--espacio-lg);
+  margin-bottom: var(--espacio-lg);
+  padding-bottom: var(--espacio-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pie__logo {
+  display: block;
+  font-family: var(--fuente-titulo);
+  font-size: var(--letra-xl);
+  color: var(--blanco);
+  margin-bottom: var(--espacio-xs);
+}
+
+.pie__eslogan {
+  font-size: var(--letra-sm);
+  font-style: italic;
+  max-width: 240px;
+  line-height: 1.5;
+}
+
+.pie__datos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: var(--letra-sm);
+}
+
+.pie__redes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pie__enlace {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: var(--letra-sm);
+  transition: color var(--velocidad);
+}
+
+.pie__enlace:hover {
+  color: var(--dorado);
+}
+
+.pie__copyright {
+  text-align: center;
+  font-size: var(--letra-xs);
+  color: rgba(255, 255, 255, 0.35);
+}
+
+
+/* ---- Responsive: pantallas pequeñas (móvil) ---- */
+
+@media (max-width: 768px) {
+
+  /* Reduzco algunos tamaños de letra y espacios en móvil */
+  :root {
+    --letra-4xl: 2.5rem;
+    --letra-3xl: 2rem;
+    --espacio-xl: 2rem;
+    --espacio-2xl: 3.5rem;
+  }
+
+  /* Cabecera en columna */
+  .cabecera {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--espacio-sm) var(--espacio-md);
+  }
+
+  .nav__lista {
+    gap: var(--espacio-sm);
+  }
+
+  /* Portada en columna (texto arriba, foto abajo) */
+  .portada {
+    flex-direction: column;
+    min-height: auto;
+    padding: var(--espacio-xl) var(--espacio-md);
+  }
+
+  /* Oculto la foto en móvil para que no rompa el diseño */
+  .portada__imagen {
+    display: none;
+  }
+
+  .portada__contenido {
+    max-width: 100%;
+  }
+
+  /* Tarjetas en una sola columna */
+  .destinos {
+    padding: var(--espacio-xl) var(--espacio-md);
+  }
+
+  .destinos__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Pasos en una sola columna */
+  .como-funciona {
+    padding: var(--espacio-xl) var(--espacio-md);
+  }
+
+  .pasos__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Formulario en una sola columna */
+  .contacto {
+    padding: var(--espacio-xl) var(--espacio-md);
+  }
+
+  .formulario {
+    grid-template-columns: 1fr;
+    padding: var(--espacio-lg) var(--espacio-md);
+  }
+
+  /* Pie en columna */
+  .pie__inner {
+    flex-direction: column;
+    gap: var(--espacio-md);
+  }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 480px) {
+
+  :root {
+    --letra-4xl: 2rem;
+  }
+
+  /* Botones del hero en columna */
+  .portada__botones {
+    flex-direction: column;
+  }
+
+  .btn {
+    text-align: center;
+  }
+
+  .condiciones__lista {
+    flex-direction: column;
+  }
+}
